@@ -5,41 +5,33 @@ const scoreText = document.getElementById('score');
 const progressBarFull = document.getElementById('progressBarFull');
 const loader = document.getElementById('loader');
 const game = document.getElementById('game');
-
 let currentQuestion = {};
 let acceptingAnswer = true;
 let score = 0;
 let questionCounter = 0;
 let availableQuestions = [];
-let questions = [];
 
+firebase.initializeApp(firebaseConfig);
+firebase.analytics();
+const db = firebase.firestore();
 
-//set questions from JSON API > start games
-fetch("https://opentdb.com/api.php?amount=10&category=9&difficulty=easy&type=multiple").then(res => {
-       return res.json();
-    }).then(loadedQuestions => {
-        console.log(loadedQuestions.results);
-        questions = loadedQuestions.results.map(loadedQuestion => {
-            const formattedQuestion = {
-                question:loadedQuestion.question
-            };
-            const answerChoices = [...loadedQuestion.incorrect_answers];
-            formattedQuestion.answer = Math.floor(Math.random()*3)+1;
-            answerChoices.splice(formattedQuestion.answer -1,0,loadedQuestion.correct_answer);
-            answerChoices.forEach((choice,index) => {
-                formattedQuestion['choice' + (index+1)] = choice;
-            });
-            return formattedQuestion;
-        });
-        startGame();
-    }).catch(err => {
-        console.error(err);
+db.collection('questions').get().then((query)=>{
+    let allData = [];
+    query.forEach((doc)=>{
+        let data = doc.data();
+        allData.push(data);
     });
+    questions = allData;
+    startGame();
+}).catch((error)=>{
+    console.log(`データの取得に失敗しました (${error})`);
+});    
 
 
-//CONSTANTS
+
+// CONSTANTS
 const CORRECT_BONUS = 10;
-const MAX_QUESTIONS = 3;
+const MAX_QUESTIONS = 10;
 
 startGame = () =>{
     questionCounter = 0;
@@ -76,10 +68,10 @@ getNewQuestion = () => {
 }
 
 choices.forEach(choice => {
-    choice.addEventListener('click',e => {
+    choice.addEventListener('click',event => {
         if(!acceptingAnswer)return;
         acceptingAnswer = false;
-        const selectedChoice = e.target;
+        const selectedChoice = event.target;
         const selectedAnswer = selectedChoice.dataset['number'];
 
         const classToApply = selectedAnswer == currentQuestion.answer? 'correct':'incorrect';
@@ -101,4 +93,5 @@ incrementScore = num =>{
     score +=num;
     scoreText.innerHTML = score;
 }
+
 

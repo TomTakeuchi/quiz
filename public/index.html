@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link rel="icon" type="image/x-icon" href="./functions/icon/favicon.ico">
+    <meta charset="UTF-8">
+    <meta name="author" content="OreOre">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Quick Quiz</title>
+    <link rel="stylesheet" href="./functions/app.css">
+</head>
+<body>
+    <div class="container">
+        <div id="home" class="flex-center flex-column">
+            <h1>Mobile Computing</h1>
+            <a class="btn" href="./functions/game.html">Play</a>
+            <a class="btn" href="./functions/highscores.html">High Scores</a>
+        </div>
+    </div>
+    <script src="https://www.gstatic.com/firebasejs/8.2.5/firebase-app.js"></script>
+
+<!-- TODO: Add SDKs for Firebase products that you want to use
+     https://firebase.google.com/docs/web/setup#available-libraries -->
+<script src="https://www.gstatic.com/firebasejs/8.2.5/firebase-analytics.js"></script>
+
+<script>
+  // Your web app's Firebase configuration
+  // For Firebase JS SDK v7.20.0 and later, measurementId is optional
+  var firebaseConfig = {
+    apiKey: "AIzaSyAvTzrMFdXwF1PZShyNUgTnr8ZRl_iDs-M",
+    authDomain: "quizapp-9b173.firebaseapp.com",
+    projectId: "quizapp-9b173",
+    storageBucket: "quizapp-9b173.appspot.com",
+    messagingSenderId: "397255329395",
+    appId: "1:397255329395:web:b0e650be1665d0f204cc06",
+    measurementId: "G-DZ82W2W6EX"
+  };
+  // Initialize Firebase
+  firebase.initializeApp(firebaseConfig);
+  firebase.analytics();
+</script>
+</body>
+</html> 

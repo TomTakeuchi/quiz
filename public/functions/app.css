@@ -1,4 +1,4 @@
-:root{
+:root{ 
     background-attachment: #ecf5ff;
     font-size: 62.5%;
 }
@@ -20,7 +20,7 @@ h4{
 
 h1{
     font-size: 5.4rem;
-    color: #56a5eb;
+    color: #2980b9!important;
     margin-bottom: 5rem;
 }
 
@@ -82,20 +82,22 @@ h3{
 /* BUTTONs */
 
 .btn{
+    border-radius: 10rem;
     font-size: 1.8rem;
     padding: 1rem 0;
     width: 20rem;
     text-align: center;
-    border: 0.1rem solid #56a5eb;
+    border: 0.1rem solid #2980b9!important;
     margin-bottom: 1rem;
     text-decoration: none;
-    color: #56a5eb;
-    background-color: white;
+    color: white;
+    background-color: #2980b9!important;
+    outline: none
 }
 
 .btn:hover{
     cursor: pointer;
-    box-shadow: 0 0.4rem 1.4rem 0 rgba(86, 185, 235, 0.5);
+    box-shadow: 0 0.4rem 1.4rem 0 rgba(63, 63, 65, 0.5);
     transform: translateY(-0.1rem);
     transition: transform 150ms;
 }
@@ -116,12 +118,19 @@ form{
 }
 
 input{
-    margin-bottom: 1rem;
+    border-top: none;
+    border-right:none;
+    border-left:none;
+    border-bottom-color: #2980b9;
+    margin-bottom: 2rem;
     width: 20rem;
     padding: 1.5rem;
     font-size: 1.8rem;
-    border: none;
-    box-shadow: 0 0.1rem 1.4rem 0 rgba(86, 185, 235, 0.5);
+}
+
+input:focus{
+    z-index: 10;
+    outline: 0;
 }
 
 input::placeholder{
