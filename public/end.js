@@ -27,7 +27,7 @@ document.querySelector("#saveScoreBtn").addEventListener("click", (e)=>{
       });
      
     setTimeout(() => {
-        window.location.assign('../index.html');
+        window.location.assign("https://quizapp-9b173.web.app" || "https://quizapp-9b173.firebaseapp.com");
     },700);
   
 });

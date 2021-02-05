@@ -12,3 +12,12 @@
 .high-score:hover{
     transform: scale(1.025);
 } 
+
+@media screen and (max-width:480px) {
+    .container{
+        height: 170vw;
+    }
+
+	/*　画面サイズが480px以下の場合ここの記述が適用される　*/
+ 
+}

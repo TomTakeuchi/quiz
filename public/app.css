@@ -30,7 +30,7 @@ h1 > span{
 }
 
 h2{
-    font-size: 4.2rem;
+    font-size: 2.8rem;
     margin-bottom: 4rem;
     font-weight: 700;
 }
@@ -135,4 +135,11 @@ input:focus{
 
 input::placeholder{
     color: #aaa;
+}
+
+@media screen and (max-width:480px) {
+    .container{
+        height: 180vw;
+    }
+ 
 }

@@ -13,6 +13,8 @@ let availableQuestions = [];
 
 firebase.initializeApp(firebaseConfig);
 firebase.analytics();
+
+
 const db = firebase.firestore();
 
 db.collection('questions').get().then((query)=>{

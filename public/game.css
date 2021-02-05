@@ -84,3 +84,17 @@
         transform: rotate(360deg);
     }
 }
+
+@media screen and (max-width:480px) {
+    h2{
+        font-size: 2.2rem;
+        margin-bottom: 4rem;
+        font-weight: 700;
+    }
+    .container{
+        height: 200vw;
+    }
+
+	/*　画面サイズが480px以下の場合ここの記述が適用される　*/
+ 
+}
